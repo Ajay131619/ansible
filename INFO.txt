@@ -1,0 +1,10 @@
+Hey hi everyone!!!
+I'm so excited to be here to share all my practices in becoming as a " DevOps and Site Reliability Engineer "journey!
+
+In this Anisble repository, I'm going to practice all the tasks that is done in the shell scripting repository
+
+pre-requisite links are given below :
+
+shellscripting = https://github.com/Ajay131619/shellp.git
+Expense project = https://github.com/Ajay131619/expense-project.git
+

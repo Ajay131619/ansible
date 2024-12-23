@@ -1,0 +1,7 @@
+# this is a sample playbook 
+- name: this is a sample play-book
+  hosts: ding
+  tasks:
+    - name: sample task 1   
+      ansible.builtin.debug:
+      msg: "hi broooooooooo!!!"

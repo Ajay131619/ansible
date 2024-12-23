@@ -18,7 +18,7 @@
        msg: "this is task 2"
     - name: play-2 task-2
       ansible.builtin.degug:
-       msg: "this is task 2"
+        msg: "this is task 2"
 # here is the information about the playbook
 
 # the is a single play and having or running the serveral tasks with in it 

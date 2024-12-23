@@ -1,8 +1,9 @@
-- name: going to ping the sever
-  host: server
+- name: Going to ping the server
+  hosts: server
   tasks:
-   - name: ping the server 
-     ansible.builtin.ping:
-     data: hi brooo!! 
+    - name: Ping the server
+      ansible.builtin.ping:
+        data: hi brooo!!
+ 
    
   #usage :  ansible-playbook -i <inventory file name> -e ansible_user=<ec2-user> -e ansible_password=<password> <playbook name>

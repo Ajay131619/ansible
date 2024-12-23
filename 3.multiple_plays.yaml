@@ -1,5 +1,5 @@
 - name: play 1 
-  hosts: 172.31.86.94
+  hosts: ding
   tasks:
    - name: play-1 task-1
      ansible.builtin.debug:
@@ -11,7 +11,7 @@
 # now we will create another play
 
 - name: play 2
-  hosts: 172.31.86.94
+  hosts: ding
   tasks: 
     - name: play-2 task-1
       ansible.builtin.debug:

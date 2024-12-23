@@ -1,7 +1,7 @@
 - name: going to ping the sever
   host: server
   tasks:
-  - name: ping the server 
+   - name: ping the server 
     ansible.builtin.ping:
     data: hi brooo!! 
    

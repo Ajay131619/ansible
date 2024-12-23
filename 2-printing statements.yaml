@@ -2,11 +2,11 @@
   hosts: server
   tasks:
     - name: printing the statements and it is a single play-task_1
-      ansible.builtin.debug:
-      msg: "This is a single play-task_1"
+        ansible.builtin.debug:
+          msg: "This is a single play-task_1"
     - name: printing the statements and it is a single play-task_2
-      ansible.builtin.debug:
-      msg: "This is a single play-task_2"
+        ansible.builtin.debug:
+          msg: "This is a single play-task_2"
 
 # here is the information about the playbook
 

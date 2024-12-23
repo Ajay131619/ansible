@@ -3,10 +3,10 @@
   tasks:
    - name: play-1 task-1
      ansible.builtin.debug:
-     msg: "This is task 1"
+       msg: "This is task 1"
    - name: play-1 task-2
      ansible.builtin.debug:
-     msg: "This is task 2"
+       msg: "This is task 2"
 # upto here is the play 1
 # now we will create another play
 
@@ -15,10 +15,10 @@
   tasks: 
     - name: play-2 task-1
       ansible.builtin.debug:
-      msg: "this is task 2"
+       msg: "this is task 2"
     - name: play-2 task-2
       ansible.builtin.degug:
-      msg: "this is task 2"
+       msg: "this is task 2"
 # here is the information about the playbook
 
 # the is a single play and having or running the serveral tasks with in it 

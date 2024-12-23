@@ -1,0 +1,29 @@
+- name: play 1 
+  hosts: server
+  tasks:
+   - name: play-1 task-1
+     ansible.builtin.debug:
+     msg: "This is task 1"
+   - name: play-1 task-2
+     ansible.builtin.debug:
+     msg: "This is task 2"
+# upto here is the play 1
+# now we will create another play
+
+- name: play 2
+  hosts: server
+  tasks: 
+    - name: play-2 task-1
+      ansible.builtin.debug:
+      msg: "this is task 2"
+    - name: play-2 task-2
+      ansible.builtin.degug:
+      msg: "this is task 2"
+# here is the information about the playbook
+
+# the is a single play and having or running the serveral tasks with in it 
+
+# hosts are given with the name server because the servers or ip address of the ec2 instances are given in the inventory file (here server.ini) , denoted by the .ini extension.
+
+# inventory file is a external file which contains all the objects
+

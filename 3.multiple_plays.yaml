@@ -17,7 +17,7 @@
       ansible.builtin.debug:
        msg: "this is task 2"
     - name: play-2 task-2
-      ansible.builtin.degug:
+      ansible.builtin.debug:
        msg: "this is task 2"
 # here is the information about the playbook
 

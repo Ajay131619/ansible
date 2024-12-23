@@ -1,0 +1,17 @@
+- name: printing the statements
+  hosts: server
+  tasks:
+    - name: printing the statements and it is a single play-task_1
+      ansible.builtin.debug:
+      msg: "This is a single play-task_1"
+    - name: printing the statements and it is a single play-task_2
+      ansible.builtin.debug:
+      msg: "This is a single play-task_2"
+
+# here is the information about the playbook
+
+# the is a single play and having or running the serveral tasks with in it 
+
+# hosts are given with the name server because the servers or ip address of the ec2 instances are given in the inventory file (here server.ini) , denoted by the .ini extension.
+
+# inventory file is a external file which contains all the objects

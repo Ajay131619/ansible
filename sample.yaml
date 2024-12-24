@@ -18,3 +18,14 @@
   - name: this is the play 2 task2 
     ansible.builtin.debug:
       msg: "I'm the play 2 task2"
+
+# going to install nginx in a different server
+
+- name: install nginx
+  hosts: ding
+  become: yes
+  tasks:
+  - name: installing nginx
+    ansible.builtin.package:
+      name: nginx
+      state: present

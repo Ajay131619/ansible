@@ -13,7 +13,7 @@
   hosts: web
   tasks: 
    - name: printing the statements from task 3
-     ansible.builtin.debub:
+     ansible.builtin.debug:
      msg: "printed from task 3"
    - name: printing the statements from task 4
      ansible.builtin.debug:

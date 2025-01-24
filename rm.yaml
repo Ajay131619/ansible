@@ -1,0 +1,29 @@
+- name: play book 1
+  hosts: web
+  tasks: 
+   - name:  printing the statements from task 1
+     ansible.builtin.debug:
+     msg: "printed from task 1"
+   
+   - name: printing the statements from task 2
+     ansible.builtin.debug:
+     msg: "printed from task 2"
+
+- name: play book 2
+  hosts: web
+  tasks: 
+   - name: printing the statements from task 3
+     ansible.builtin.debub:
+     msg: "printed from task 3"
+   - name: printing the statements from task 4
+     ansible.builtin.debug:
+     msg: "printed from task 4"
+
+- name: play book 3
+  hosts: web
+  tasks: 
+   - name: installing the nginx server package
+     ansible.builtin.package: 
+      name: nginx
+      state: present
+ 

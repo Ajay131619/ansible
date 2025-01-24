@@ -21,6 +21,7 @@
 
 - name: play book 3
   hosts: web
+  become: yes
   tasks: 
    - name: installing the nginx server package
      ansible.builtin.package: 

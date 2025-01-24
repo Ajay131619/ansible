@@ -3,11 +3,11 @@
   tasks: 
    - name:  printing the statements from task 1
      ansible.builtin.debug:
-        msg: "printed from task 1"
+       msg: "printed from task 1"
    
    - name: printing the statements from task 2
      ansible.builtin.debug:
-       sg: "printed from task 2"
+       msg: "printed from task 2"
 
 - name: play book 2
   hosts: web

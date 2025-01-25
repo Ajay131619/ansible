@@ -1,0 +1,13 @@
+- name: using the variables from the files
+  hosts: web
+  vars_prompt:
+    - name: name
+      prompt: "enter the name of the course"
+      private: false
+    - name: mentor
+      prompt: "enter the name of the mentor"
+      private: false
+  tasks:
+    - name: using the variables to print the variables
+      ansible.builtin.debug:
+        msg: "name of the course= {{name}}, mentor= {{mentor}}"

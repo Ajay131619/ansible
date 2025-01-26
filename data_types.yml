@@ -1,0 +1,17 @@
+- name: data types
+  hosts: local
+  vars:
+    ajay: "handsome guy"
+    topis:
+      - ami
+      - s3
+      - route 
+    tools:
+      aws: amazon web services
+      s3_buckets: services
+    paid: true
+    cost_per_hour: 1
+  tasks:
+    - name: usage of the data types in the ansible 
+      ansible.builtin.debug:
+        msg: "he is a {{ ajay }} , topics are : {{ topics }} , tools are : {{ tools }}, is the services are cost based: {{ paid }} , cost per hour in $ : {{ cost_per_hour }} "

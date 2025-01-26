@@ -3,9 +3,9 @@
   vars:
     ajay: "handsome guy"
     topis:
-      - ami
-      - s3
-      - route 
+    - ami
+    - s3
+    - route 
     tools:
       aws: amazon web services
       s3_buckets: services

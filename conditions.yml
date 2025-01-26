@@ -1,0 +1,11 @@
+- name: using the conditions in ansible
+  hosts: local
+  vars_prompt:
+    - name: number
+      prompt: "enter the number:"
+      private: false
+  tasks: 
+    - name: checking the number is greater than or not using the conditions
+      ansible.builtin.debug:
+        msg: "the {{ number }} is greater than 19"
+      when: number  | int > 19

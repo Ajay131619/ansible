@@ -1,6 +1,7 @@
 - name: finding the user exists or not 
   hosts: local
   connection: local
+  become: yes
   tasks:
     - name: sending the output to the variable using register 
       ansible.builtin.command: id expense
@@ -8,4 +9,4 @@
     
     - name: printing the id expense output
       ansible.builtin.debug:
-        msg: "{{ user }}"
+        msg: {{ user }}

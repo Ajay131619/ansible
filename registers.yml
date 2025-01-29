@@ -1,6 +1,5 @@
 - name: finding the user exists or not 
   hosts: local
-  connection: local
   become: yes
   tasks:
     - name: sending the output to the variable using register 

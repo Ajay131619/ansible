@@ -5,7 +5,7 @@
   tasks:
     - name: sending the output to the variable using register 
       ansible.builtin.command: id expense
-      resigister: user
+      register: user
     
     - name: printing the id expense output
       ansible.builtin.debug:

@@ -10,3 +10,9 @@
     - name: printing the id expense output
       ansible.builtin.debug:
         msg: " {{ user }} "
+    - name: creating the expense user
+      ansible.builtin.command: useradd expense
+      register: user1
+    - name: printing the output of the user created or not
+      ansible.builtin.debug:
+        msg: "{{ user1 }}"

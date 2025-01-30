@@ -4,7 +4,7 @@
   tasks:
     - name: using the loops
       ansible.builtin.debug:
-        msg: "hi {{ item }} bro!!"
+        msg: "hi {{ item }} bro!!"   # here item is a reserve keyword
       loop:
       - ajay
       - gowtham

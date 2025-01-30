@@ -1,0 +1,25 @@
+- name: using the filters 
+  hosts: local
+  connection: local
+  vars:
+    greeting: "good evening bro"
+  tasks:
+    - name: printing the greeting msg in uppercase
+      ansible.builtin.debug:
+        msg: " {{ greeting | upper }} ajay "
+    
+    - name: printing the greeting msg in lowercase
+      vars:
+       greeting: "good evening bro"
+      ansible.builtin.debug:
+        msg: " {{ greeting | lower }} ajay "
+    
+    - name: printing the unique characters
+      vars:
+       numbers: [ 1,2,3,4,5,5,65,66,42,34,434,333 ]
+      ansible.builtin.debug:
+        msg: " the unique numbers are:  {{ numbers | unique }}  "
+
+    - name: printing the default variable
+      ansible.builtin.debug:
+        msg: " greeting | default( hi bro ) "   

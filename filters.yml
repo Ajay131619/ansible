@@ -22,4 +22,4 @@
 
     - name: printing the default variable
       ansible.builtin.debug:
-        msg: " {{ greeting | default(' hi bro ') }} "   
+        msg: " {{ msg | default(' hi bro ') }} "   

@@ -1,0 +1,10 @@
+# checking the ip address is in the correct format or not using the filters
+- name: checking the ip address format using filters
+  hosts: local
+  connection: local
+  vars:
+   myip: 192.1.1.1.1.1  # false ip address
+  tasks:
+    - name: using the filters
+      ansible.builtin.debug:
+        msg: " the ip address {{ myip }} is {{ myip | ansible.utils.ip }}"

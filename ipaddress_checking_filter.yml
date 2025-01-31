@@ -7,4 +7,4 @@
   tasks:
     - name: using the filters
       ansible.builtin.debug:
-        msg: " the ip address {{ myip }} is {{ myip | 'ansible.utils.ip' }} "
+        msg: " the ip address {{ myip }} is {{ myip | ' ansible.utils.ip ' }} "

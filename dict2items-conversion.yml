@@ -1,0 +1,18 @@
+- name: filters
+  hosts: local
+  connection: local
+  vars:
+  tools:
+    ajay: student
+    hi: greeting
+  tasks: 
+    - name: using the filters to convert the dictionary to list
+      ansible.builtin.debug: # converting the dictionary to list 
+        msg: " the list is : {{ tools | dict2items }}"
+    - name: using the filters to convert the dictionary to list
+      vars:
+      list:
+      - ajay
+      - hi
+      ansible.builtin.debug: # converting the list to dictionary  
+        msg: " the list is : {{ list | items2dict }}"

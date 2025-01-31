@@ -12,9 +12,10 @@
     - name: using the filters to convert the dictionary to list
       vars:
         list: 
-         - {'key': 'ajay', 'value': 'student'} 
-         - {'key': 'hi', 'value': 'greeting'}
-         - ajay: student
-         - hi: greeting
+         - 'key': 'ajay'
+           'value': 'student' 
+         - 'key': 'hi' 
+           'value': 'greeting'
+         
       ansible.builtin.debug: # converting the list to dictionary  
         msg: " the dictionary is : {{ list | items2dict }}"

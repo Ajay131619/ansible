@@ -19,3 +19,7 @@
         image_id: "{{ ami_id }}"
         region: us-east-1
       loop: "{{ instances }}"
+      register: ins
+    - name: printing the information 
+      ansible.builtin.debug:
+        msg: "{{ ins }}"

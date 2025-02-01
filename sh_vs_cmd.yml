@@ -1,0 +1,19 @@
+- name: difference between the command and the shell
+  hosts: local
+  connection: local
+  tasks:  
+    - name: shell commands 
+      ansible.builtin.shell: dnf list installed | grep ansible >  /tmp/output.txt
+      register: result1
+
+    - name: printing the shell side output
+      ansible.builtin.debug:
+        msg: " {{ result1 }} "
+    
+    - name: shell commands 
+      ansible.builtin.command: dnf list installed | grep ansible >  /tmp/output.txt
+      register: result2
+    
+    - name: printing the command side output
+      ansible.builtin.debug:
+        msg: " {{ result2 }} "

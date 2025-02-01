@@ -10,8 +10,8 @@
       ansible.builtin.debug:
         msg: " {{ result1 }} "
     
-    - name: shell commands 
-      ansible.builtin.command: dnf list installed | grep ansible >  /tmp/output.txt
+    - name: modules/commands 
+      ansible.builtin.command: ls -ltr >  /tmp/output.txt
       register: result2
     
     - name: printing the command side output

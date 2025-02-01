@@ -12,10 +12,11 @@
   tasks:
     - name: creating the ec2-instances
       ansible.aws.ec2_instance:
-        name: " {{ item }} "
-        vpc_subnet_id: " {{ vpc_id }} "
+        name: "{{ item }}"
+        vpc_subnet_id: "{{ vpc_id }}"
         instance_type: t3.micro
-        security_group: " {{ sg }} "
+        security_groups: " {{ sg }} "
         image_id: "{{ ami_id }}"
-      loop: " {{ instances }} "
+        region: us-east-1
+      loop: "{{ instances }}"
       

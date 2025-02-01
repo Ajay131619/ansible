@@ -1,44 +1,21 @@
-# - name: creating the ec2-instances and route53 records using ansible
-#   hosts: local
-#   connection: local
-#   vars: 
-#     vpc_id: subnet-0d3c945e4107297ee
-#     ami_id: ami-09c813fb71547fc4f
-#     sg: sg-04ee5dc1d26b0b187
-#     instances:
-#       - sql
-#       - backend
-#       - frontend
-#   tasks:
-#     - name: creating the ec2-instances
-#       ansible.aws.ec2_instance:
-#         name: "{{ item }}"
-#         vpc_subnet_id: "{{ vpc_id }}"
-#         instance_type: t3.micro
-#         security_groups: " {{ sg }} "
-#         image_id: "{{ ami_id }}"
-#         region: us-east-1
-#       loop: "{{ instances }}"
-      
-- name: Creating EC2 instances and Route53 records using Ansible
-  hosts: localhost
+- name: creating the ec2-instances and route53 records using ansible
+  hosts: local
   connection: local
   vars: 
-    vpc_id: subnet-0d3c945e4107297ee
-    ami_id: ami-09c813fb71547fc4f
-    security_groups:
-      - sg-04ee5dc1d26b0b187
+    vpc_id: "subnet-0d3c945e4107297ee"
+    ami_id: "ami-09c813fb71547fc4f"
+    sg: "sg-04ee5dc1d26b0b187"
     instances:
       - sql
       - backend
       - frontend
   tasks:
-    - name: Creating EC2 instances
+    - name: creating the ec2-instances
       amazon.aws.ec2_instance:
         name: "{{ item }}"
         vpc_subnet_id: "{{ vpc_id }}"
-        instance_type: t3.micro
-        security_groups: "{{ security_groups }}"
+        instance_type: "t3.micro"
+        security_groups: "{{ sg }}"
         image_id: "{{ ami_id }}"
-        region: us-east-1  # Specify your AWS region
+        region: us-east-1
       loop: "{{ instances }}"

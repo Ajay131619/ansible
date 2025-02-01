@@ -12,6 +12,7 @@
     
     - name: modules/commands 
       ansible.builtin.command: ls -ltr >  /tmp/output.txt
+      ignore_errors: true
       register: result2
     
     - name: printing the command side output

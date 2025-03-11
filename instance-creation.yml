@@ -2,13 +2,13 @@
   hosts: local
   connection: local
   vars: 
-     vpc_id: "subnet-0d3c945e4107297ee"
-     ami_id: "ami-09c813fb71547fc4f"
-     sg: "sg-04ee5dc1d26b0b187"
-     instances: 
-       - backend
-       - frontend
-       - mysql
+   vpc_id: "subnet-0d3c945e4107297ee"
+   ami_id: "ami-09c813fb71547fc4f"
+   sg: "sg-04ee5dc1d26b0b187"
+   instances: 
+      - backend
+      - frontend
+      - mysql
 
   tasks: 
       amazon.aws.ec2_instance:

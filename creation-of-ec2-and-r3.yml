@@ -9,7 +9,7 @@
       - backend
       - frontend
       - mysql
-    zone: daws19.online
+    zone: "daws19.online"
   tasks: 
     - name: Launch EC2 instances
       amazon.aws.ec2_instance:

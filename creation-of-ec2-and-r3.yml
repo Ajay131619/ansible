@@ -9,6 +9,7 @@
       - sql
       - backend
       - frontend
+    zone: daws19.online
   tasks:
     - name: creating the ec2-instances
       amazon.aws.ec2_instance:
@@ -23,3 +24,14 @@
     - name: printing the information 
       ansible.builtin.debug:
         msg: "{{ ins }}"
+
+    - name: creating the route53 records for the sql,backend,frontend
+      amazon.aws.route53:
+       state: present
+       zone: "{{ zone }}"
+       record: "{{item.item}}.{{ zone }}"
+       type: A
+       ttl: 1
+       value: "{{ ins.instances[0].private_ip_address}}"
+       wait: true
+      loop: "{{ ins.results }}"

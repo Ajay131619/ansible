@@ -19,7 +19,7 @@
           image_id: {{ ami_id }}
           region: us-east-1
   loop:  instances
-  register: {{ ec2 }}
+  register:  ec2 
 
 - name: print the registered information from the instances that are created
   ansible.builtin.debug:

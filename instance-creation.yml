@@ -1,25 +1,27 @@
-- name: creation of the multiple ec2 instances with the respective names which is looped
-  hosts: local
+- name: Creation of multiple EC2 instances with respective names
+  hosts: localhost
   connection: local
   vars: 
-   vpc_id: "subnet-0d3c945e4107297ee"
-   ami_id: "ami-09c813fb71547fc4f"
-   sg: "sg-04ee5dc1d26b0b187"
-   instances: 
+    vpc_id: "subnet-0d3c945e4107297ee"
+    ami_id: "ami-09c813fb71547fc4f"
+    sg: "sg-04ee5dc1d26b0b187"
+    instances: 
       - backend
       - frontend
       - mysql
   tasks: 
-    amazon.aws.ec2_instance:
-     name: "{{ item }}"
-     vpc_subnet_id: "{{ vpc_id }}"
-     instance_type: t3.micro
-     security_group: "{{ sg }}" 
-     image_id: "{{ ami_id }}"
-     region: us-east-1
-  loop:  "{{instances}}"
-  register:  ec2 
+    - name: Launch EC2 instances
+      amazon.aws.ec2_instance:
+        name: "{{ item }}"
+        vpc_subnet_id: "{{ vpc_id }}"
+        instance_type: t3.micro
+        security_groups: 
+          - "{{ sg }}"
+        image_id: "{{ ami_id }}"
+        region: us-east-1
+      loop: "{{ instances }}"
+      register: ec2 
 
-- name: print the registered information from the instances that are created
-  ansible.builtin.debug:
-    - msg: " the information: {{ ec2 }} "
+    - name: Print the registered information from the created instances
+      ansible.builtin.debug:
+        msg: "The information: {{ ec2 }}"

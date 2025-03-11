@@ -18,7 +18,7 @@
           security_group: {{ sg }}
           image_id: {{ ami_id }}
           region: us-east-1
-  loop: {{ instances }}
+  loop:  instances
   register: {{ ec2 }}
 
 - name: print the registered information from the instances that are created

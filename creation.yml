@@ -19,8 +19,8 @@
        instance_type: t3.micro
        security_group: "{{ sg }}"
        image_id: "{{ ami_id }}"
-  loop: "{{ instances }}"
-  register: instance
+      loop: "{{ instances }}"
+      register: instance
 
 - name: printing the information from the register
   ansible.builtin.debug:

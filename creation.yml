@@ -1,0 +1,52 @@
+- name: ansible play book for creating the instances
+  hosts: local
+  connection: local
+  become: yes
+  vars: 
+    vpc_id: vpc-01ba83fa71bae6c12
+    ami_id: ami-09c813fb71547fc4f
+    sg: sg-04ee5dc1d26b0b187
+    zone: "daws19.online"
+    instances:
+      - frontend
+      - backend
+      - mysql
+  tasks: 
+    - name: creating instances
+      amazon.aws.ec2_instance:
+       name: "public-compute-instance"
+       vpc_subnet_id: "{{ vpc_id }}"
+       instance_type: t3.micro
+       security_group: "{{ sg }}"
+       image_id: "{{ ami_id }}"
+  loop: "{{ instances }}"
+  register: instance
+
+- name: printing the information from the register
+  ansible.builtin.debug:
+  msg: "{{instances}}"
+  
+- name: creating the route53 records for private ip_address
+  amazon.aws.route53:
+    state: present
+    zone: "{{ zone }}"
+    record: "{{ item.item }}.{{ zone }}"
+    type: A
+    ttl: 1
+    value: "{{ item.instances[0].private_ip_address }}"
+    wait: true
+    overwrite: true
+  loop: "{{ instance.results }}"
+
+- name: creating the route53 records for public ip_address
+  amazon.aws.route53:
+    state: present
+    zone: "{{ zone }}"
+    record: "{{ zone }}"
+    type: A
+    ttl: 1
+    value: "{{ item.instances[0].public_ip_address }}"
+    wait: true
+    overwrite: true
+  loop: "{{ instance.results }}"
+  when: item.item == "frontend"

@@ -24,7 +24,7 @@
 
 - name: printing the information from the register
   ansible.builtin.debug:
-  msg: "{{instances}}"
+    msg: "{{instances}}"
   
 - name: creating the route53 records for private ip_address
   amazon.aws.route53:

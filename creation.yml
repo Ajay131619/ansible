@@ -24,31 +24,31 @@
       loop: "{{ instances }}"
       register: instance
 
-- name: printing the information from the register
-  ansible.builtin.debug:
-    msg: " the information gathered is : {{ instance }}"
-  
-- name: creating the route53 records for private ip_address
-  amazon.aws.route53:
-    state: present
-    zone: "{{ zone }}"
-    record: "{{ item.item }}.{{ zone }}"
-    type: A
-    ttl: 1
-    value: "{{ item.instances[0].private_ip_address }}"
-    wait: true
-    overwrite: true
-  loop: "{{ instance.results }}"
+    - name: printing the information from the register
+      ansible.builtin.debug:
+        msg: " the information gathered is : {{ instance }}"
+       
+    - name: creating the route53 records for private ip_address
+      amazon.aws.route53:
+        state: present
+        zone: "{{ zone }}"
+        record: "{{ item.item }}.{{ zone }}"
+        type: A
+        ttl: 1
+        value: "{{ item.instances[0].private_ip_address }}"
+        wait: true
+        overwrite: true
+      loop: "{{ instance.results }}"
 
-- name: creating the route53 records for public ip_address
-  amazon.aws.route53:
-    state: present
-    zone: "{{ zone }}"
-    record: "{{ zone }}"
-    type: A
-    ttl: 1
-    value: "{{ item.instances[0].public_ip_address }}"
-    wait: true
-    overwrite: true
-  loop: "{{ instance.results }}"
-  when: item.item == "frontend"
+    - name: creating the route53 records for public ip_address
+      amazon.aws.route53:
+        state: present
+        zone: "{{ zone }}"
+        record: "{{ zone }}"
+        type: A
+        ttl: 1
+        value: "{{ item.instances[0].public_ip_address }}"
+        wait: true
+        overwrite: true
+      loop: "{{ instance.results }}"
+      when: item.item == "frontend"

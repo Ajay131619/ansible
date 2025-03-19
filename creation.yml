@@ -14,17 +14,19 @@
   tasks: 
     - name: creating instances
       amazon.aws.ec2_instance:
-       name: "public-compute-instance"
+       name: "{{ item }}"
        vpc_subnet_id: "{{ vpc_id }}"
        instance_type: t3.micro
-       security_group: "{{ sg }}"
+       security_groups:
+          - "{{ sg }}"
+       region: us-east-1
        image_id: "{{ ami_id }}"
       loop: "{{ instances }}"
       register: instance
 
 - name: printing the information from the register
   ansible.builtin.debug:
-    msg: "{{instances}}"
+    msg: "{{instance}}"
   
 - name: creating the route53 records for private ip_address
   amazon.aws.route53:

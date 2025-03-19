@@ -52,3 +52,11 @@
         overwrite: true
       loop: "{{ instance.results }}"
       when: item.item == "frontend"
+    
+    - name: installing the pip modules in the instance 
+      ansible.builtin.pip:
+        name: boto 
+    
+    - name: installing the pip modules in the instance 
+      ansible.builtin.pip:
+        name: boto3

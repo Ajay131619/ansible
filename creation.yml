@@ -12,6 +12,15 @@
       - backend
       - mysql
   tasks: 
+
+    - name: installing the pip modules in the instance 
+      ansible.builtin.pip:
+        name: botocore
+    
+    - name: installing the pip modules in the instance 
+      ansible.builtin.pip:
+        name: boto3
+
     - name: creating instances
       amazon.aws.ec2_instance:
        name: "{{ item }}"
@@ -53,10 +62,4 @@
       loop: "{{ instance.results }}"
       when: item.item == "frontend"
     
-    - name: installing the pip modules in the instance 
-      ansible.builtin.pip:
-        name: boto 
-    
-    - name: installing the pip modules in the instance 
-      ansible.builtin.pip:
-        name: boto3
+ 

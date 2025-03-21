@@ -1,7 +1,6 @@
 - name: ansible play book for creating the instances
   hosts: local
   connection: local
-  become: yes
   vars: 
     vpc_id: "subnet-0d3c945e4107297ee"
     ami_id: "ami-09c813fb71547fc4f"

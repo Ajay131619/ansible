@@ -25,9 +25,8 @@
       amazon.aws.ec2_instance:
         name: "{{ item }}"
         vpc_subnet_id: "{{ vpc_id }}"
-        instance_type: t3.micro
-        security_groups:
-          - "{{ sg }}"
+        instance_type: "t3.micro"
+        security_group: "{{ sg }}"
         image_id: "{{ ami_id }}"
         region: us-east-1
       loop: "{{ instances }}"
